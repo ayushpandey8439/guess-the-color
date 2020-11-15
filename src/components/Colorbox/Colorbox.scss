@@ -1,0 +1,26 @@
+@import "./../../gridcolors.scss";
+.Colorbox {
+  display: flex;
+  margin: 4px;
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+}
+$row: 1;
+$column: 1;
+@for $i from 2 through 16 {
+  $row: append($row, $i);
+}
+@for $i from 2 through 30 {
+  $column: append($column, $i);
+}
+@each $i in $row {
+  @each $j in $column {
+    .colored-#{$i}-#{$j} {
+      background-color: getGridboxColor($i, $j);
+    }
+  }
+}
