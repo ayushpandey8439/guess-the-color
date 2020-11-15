@@ -1,4 +1,15 @@
 .main_title {
   color: white;
   font-weight: 900;
+  margin: 15px;
+}
+
+.home_container {
+  display: flex;
+  flex-direction: column;
+}
+.gameID_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
