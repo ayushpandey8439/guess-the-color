@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Colorbox.scss";
 
 function Colorbox(props) {
-  function placeMarker(row, column) {
+  const [selected, setselected] = useState(false);
+
+  function toggleMarker(row, column) {
     console.log("Marker placed at " + (row + " " + column));
+    setselected(!selected);
   }
   if (props.Row === 0 && props.Column === 0) {
     return <div className="Colorbox"></div>;
@@ -28,8 +31,10 @@ function Colorbox(props) {
   } else {
     return (
       <div
-        className={`Colorbox colored-${props.Row}-${props.Column}`}
-        onClick={() => placeMarker(props.Row, props.Column)}
+        className={`Colorbox colored-${props.Row}-${props.Column} ${
+          selected ? "shaking" : ""
+        }`}
+        onClick={() => toggleMarker(props.Row, props.Column)}
       ></div>
     );
   }
